@@ -24,16 +24,22 @@ export default function App() {
 
   const fetchNews = async () => {
     try {
-      setLoading(true);
-      const apiKey = import.meta.env.VITE_API_KEY;
-      
-      const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}&category=technology`);
+      setLoading(true);      
+      // To use the real API, uncomment the lines below and replace YOUR_API_KEY_HERE with your actual News API key
+      // You can get a free API key at https://newsapi.org/
+      /*
+      const response = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=YOUR_API_KEY_HERE');
       const data = await response.json();
       if (data.articles) {
         setArticles(data.articles);
-        setLoading(false);
       }
-
+      */
+      
+      // Mock data for demonstration (remove this when using real API)
+      setTimeout(() => {
+        setArticles(mockArticles);
+        setLoading(false);
+      }, 1000);
     } catch (error) {
       console.error('Error fetching news:', error);
       setLoading(false);
